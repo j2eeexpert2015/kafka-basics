@@ -9,11 +9,16 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Properties;
 
 public class ProducerAndConsumer {
+	
+	Logger logger = LoggerFactory.getLogger(ProducerAndConsumer.class.getName());
 
 	private final String topic;
 	private final Properties props;
@@ -48,7 +53,7 @@ public class ProducerAndConsumer {
 		while (true) {
 			ConsumerRecords<String, String> records = consumer.poll(1000);
 			for (ConsumerRecord<String, String> record : records) {
-				System.out.printf("%s [%d] offset=%d, key=%s, value=\"%s\"\n", record.topic(), record.partition(),
+				logger.info("topic={},partition={},offset={},key={},value={}\n", record.topic(), record.partition(),
 						record.offset(), record.key(), record.value());
 			}
 		}
