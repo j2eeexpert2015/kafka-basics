@@ -5,17 +5,27 @@
 	<groupId>kafka-basics</groupId>
 	<artifactId>kafka-basics</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<dependencies>
+
+	<properties>
+		<kafka.version>1.0.0</kafka.version>
+	</properties>
+ 	<dependencies>
 		<dependency>
 			<groupId>org.apache.kafka</groupId>
 			<artifactId>kafka-clients</artifactId>
-			<version>1.0.0</version>
+			<version>${kafka.version}</version>
 		</dependency>
 		<dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.25</version>
-        </dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-streams</artifactId>
+			<version>${kafka.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.25</version>
+		</dependency>
 	</dependencies>
 
 	<build>
